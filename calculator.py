@@ -6,11 +6,17 @@ root.title("CALCULATOR")
 #INPUT CALCULATOR:
 display = Entry(root)
 display.grid(row=1, columnspan=3, sticky=W+E)
+#RUNING BUTTONS CALCULATOR:
 i = 0
 def get_numbers(number):
     global i 
     display.insert(i,number)
     i = (i + 1)
+def get_operators(operators):
+    global i
+    longoperator = len(operators)
+    display.insert(i,operators)
+    i = i + longoperator
     
 #NUMBER BUTTONS:
     
@@ -29,13 +35,13 @@ Button(root,text="3",command=lambda:get_numbers(3)).grid(row=5,column=2,sticky=W
     
 Button(root,text="🔄").grid(row=1,column=3,sticky=W+E)
 Button(root,text="C").grid(row=2,column=0,sticky=W+E)
-Button(root,text="/").grid(row=2,column=3,sticky=W+E)
-Button(root,text="x").grid(row=3,column=3,sticky=W+E)
-Button(root,text="-").grid(row=4,column=3,sticky=W+E)
-Button(root,text="+").grid(row=5,column=3,sticky=W+E)
-Button(root,text="=").grid(row=6,column=3,sticky=W+E)
-Button(root,text="%").grid(row=2,column=2,sticky=W+E)
-Button(root,text="( )").grid(row=2,column=1,sticky=W+E)
+Button(root,text="/",command=lambda:get_operators("/")).grid(row=2,column=3,sticky=W+E)
+Button(root,text="x",command=lambda:get_operators("*")).grid(row=3,column=3,sticky=W+E)
+Button(root,text="-",command=lambda:get_operators("-")).grid(row=4,column=3,sticky=W+E)
+Button(root,text="+",command=lambda:get_operators("+")).grid(row=5,column=3,sticky=W+E)
+Button(root,text="=",command=lambda:get_operators("=")).grid(row=6,column=3,sticky=W+E)
+Button(root,text="%",command=lambda:get_operators("%")).grid(row=2,column=2,sticky=W+E)
+Button(root,text="exp",command=lambda:get_operators("**")).grid(row=2,column=1,sticky=W+E)
 
 
 root.mainloop()
