@@ -2,7 +2,7 @@ from tkinter import*
 import parser
 
 root = Tk()
-root.title("CALCULATOR")
+root.title("MY CALCULATOR")
 #INPUT CALCULATOR:
 display = Entry(root)
 display.grid(row=1, columnspan=3, sticky=W+E)
