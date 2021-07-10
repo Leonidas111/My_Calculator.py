@@ -10,7 +10,7 @@ i = 0
 def get_numbers(number):
     global i 
     display.insert(i,number)
-    i = (i + 1)
+    i = i + 1
     
 #NUMBER BUTTONS:
     
