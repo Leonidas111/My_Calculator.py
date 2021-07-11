@@ -15,6 +15,15 @@ def add_operator(operator):
     i = (i+1)
 def clear_display():
     display.delete(0,END)
+def delete_element():
+    display_status = display.get()
+    if len(display_status):
+        display_new_status = display_status[:-1]
+        clear_display()
+        display.insert(0,display_new_status)
+    else:
+        clear_display()
+
     
 #BUTTONS COLUMN 0:
 Button(root,text="7",command=lambda:add_number(7)).grid(row=2,column=0,sticky=W+E)
@@ -30,7 +39,7 @@ Button(root,text="9",command=lambda:add_number(9)).grid(row=2,column=2,sticky=W+
 Button(root,text="6",command=lambda:add_number(6)).grid(row=3,column=2,sticky=W+E)
 Button(root,text="3",command=lambda:add_number(3)).grid(row=4,column=2,sticky=W+E)
 #BUTTONS COLUMN 3:
-Button(root,text="DEL").grid(row=2,column=3,sticky=W+E)
+Button(root,text="DEL",command=lambda:delete_element()).grid(row=2,column=3,sticky=W+E)
 Button(root,text="x",command=lambda:add_operator("*")).grid(row=3,column=3,sticky=W+E)
 Button(root,text="+",command=lambda:add_operator("+")).grid(row=4,column=3,sticky=W+E)
 Button(root,text="=",command=lambda:add_operator("=")).grid(row=5,column=3,columnspan=2,sticky=W+E)
