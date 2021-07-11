@@ -1,4 +1,5 @@
 from tkinter import*
+import parser
 
 root = Tk()
 root.title("My Calculator")
@@ -23,6 +24,18 @@ def delete_element():
         display.insert(0,display_new_status)
     else:
         clear_display()
+def calculate():
+    display_status = display.get()
+    try:
+        math_calculator = parser.expr(display_status).compile()
+        result = eval(math_calculator)
+        clear_display()
+        display.insert(0,result)
+    except SyntaxError:
+        clear_display
+        display.insert(0,"ERROR")
+
+
 
     
 #BUTTONS COLUMN 0:
@@ -42,7 +55,7 @@ Button(root,text="3",command=lambda:add_number(3)).grid(row=4,column=2,sticky=W+
 Button(root,text="DEL",command=lambda:delete_element()).grid(row=2,column=3,sticky=W+E)
 Button(root,text="x",command=lambda:add_operator("*")).grid(row=3,column=3,sticky=W+E)
 Button(root,text="+",command=lambda:add_operator("+")).grid(row=4,column=3,sticky=W+E)
-Button(root,text="=",command=lambda:add_operator("=")).grid(row=5,column=3,columnspan=2,sticky=W+E)
+Button(root,text="=",command=lambda:calculate()).grid(row=5,column=3,columnspan=2,sticky=W+E)
 #BUTTONS COLUMN 4:
 Button(root,text="AC",command=lambda:clear_display()).grid(row=2,column=4,sticky=W+E)
 Button(root,text="/",command=lambda:add_operator("/")).grid(row=3,column=4,sticky=W+E)
