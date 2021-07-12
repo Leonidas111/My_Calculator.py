@@ -1,10 +1,11 @@
-from tkinter import* 
+from tkinter import*
+import parser 
 
 screen = Tk()
 screen.title("My calculator")
 display = Entry(screen, font=("Consol 19"))
 display.grid(row=0,column=0,columnspan=6,padx=12,pady=6, sticky=W+E)
-#ADD element FUNCTION:
+#BUTTON OPERATION:
 i = 0
 def add_element(element):
     global i
@@ -20,10 +21,16 @@ def delete_element():
         display.insert(0,display_new_status)
     else:
         clear_screen()
-
-
-
-    
+def calcute():
+    try:
+        screen_status = display.get()
+        operation_math = parser.expr(screen_status).compile()
+        product = eval(operation_math)
+        clear_screen()
+        display.insert(0,product)
+    except SyntaxError:
+        clear_screen()
+        display.insert(0,"ERROR")
 
 #BUTTONS COLUMN 0:
 Button(screen,text="⌫",font="Consol 14",command=lambda:delete_element()).grid(row=1,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
@@ -51,7 +58,7 @@ Button(screen,text="÷",font="Consol 14",command=lambda:add_element("/")).grid(r
 Button(screen,text="expon",font="Consol 14",command=lambda:add_element("**")).grid(row=1,column=5,padx=12,sticky=W+E)
 Button(screen,text="resid",font="Consol 14",command=lambda:add_element("%")).grid(row=2,column=5,padx=12,sticky=W+E)
 
-Button(screen,text="=",font="Consol 14").grid(row=3,rowspan=2,padx=12,column=5,pady=6,sticky=W+E+N+S)
+Button(screen,text="=",font="Consol 14",command=lambda:calcute()).grid(row=3,rowspan=2,padx=12,column=5,pady=6,sticky=W+E+N+S)
 
 
 screen.mainloop()
