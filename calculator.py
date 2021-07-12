@@ -1,9 +1,37 @@
-from tkinter import*
+from tkinter import* 
 
 screen = Tk()
 screen.title("My calculator")
-display = Entry(screen, font=("Consol 14"))
-display.grid(row=0,column=0,columnspan=5,padx=12,pady=6, sticky=W+E)
+display = Entry(screen, font=("Consol 19"))
+display.grid(row=0,column=0,columnspan=6,padx=12,pady=6, sticky=W+E)
+
+#BUTTONS COLUMN 0:
+Button(screen,text="⌫",font="Consol 14").grid(row=1,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
+Button(screen,text="AC",font="Consol 14").grid(row=3,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
+#BUTTONS COLUMN 1:
+Button(screen,text="7",font="Consol 14").grid(row=1,column=1,pady=6,sticky=W+E)
+Button(screen,text="4",font="Consol 14").grid(row=2,column=1,pady=6,sticky=W+E)
+Button(screen,text="1",font="Consol 14").grid(row=3,column=1,pady=6,sticky=W+E)
+Button(screen,text="0",font="Consol 14").grid(row=4,column=1,columnspan=2,pady=6,sticky=W+E)
+#BUTTONS COLUMN 2:
+Button(screen,text="8",font="Consol 14").grid(row=1,column=2,sticky=W+E)
+Button(screen,text="5",font="Consol 14").grid(row=2,column=2,sticky=W+E)
+Button(screen,text="2",font="Consol 14").grid(row=3,column=2,sticky=W+E)
+#BUTTONS COLUMN 3:
+Button(screen,text="9",font="Consol 14").grid(row=1,column=3,sticky=W+E)
+Button(screen,text="6",font="Consol 14").grid(row=2,column=3,sticky=W+E)
+Button(screen,text="3",font="Consol 14").grid(row=3,column=3,sticky=W+E)
+Button(screen,text=".",font="Consol 14").grid(row=4,column=3,sticky=W+E)
+#BUTTONS COLUMN 4:
+Button(screen,text="+",font="Consol 14").grid(row=1,column=4,sticky=W+E)
+Button(screen,text="-",font="Consol 14").grid(row=2,column=4,sticky=W+E)
+Button(screen,text="x",font="Consol 14").grid(row=3,column=4,sticky=W+E)
+Button(screen,text="÷",font="Consol 14").grid(row=4,column=4,sticky=W+E)
+#BUTTONS COLUMN 5:
+Button(screen,text="exp",font="Consol 14").grid(row=1,column=5,padx=12,sticky=W+E)
+Button(screen,text="%",font="Consol 14").grid(row=2,column=5,padx=12,sticky=W+E)
+Button(screen,text="=",font="Consol 14").grid(row=3,rowspan=2,padx=12,column=5,pady=6,sticky=W+E+N+S)
+
 
 
 
