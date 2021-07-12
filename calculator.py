@@ -57,7 +57,6 @@ Button(screen,text="÷",font="Consol 14",command=lambda:add_element("/")).grid(r
 #BUTTONS COLUMN 5:
 Button(screen,text="expon",font="Consol 14",command=lambda:add_element("**")).grid(row=1,column=5,padx=12,sticky=W+E)
 Button(screen,text="resid",font="Consol 14",command=lambda:add_element("%")).grid(row=2,column=5,padx=12,sticky=W+E)
-
 Button(screen,text="=",font="Consol 14",command=lambda:calcute()).grid(row=3,rowspan=2,padx=12,column=5,pady=6,sticky=W+E+N+S)
 
 
