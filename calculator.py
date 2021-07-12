@@ -12,10 +12,21 @@ def add_element(element):
     i = (i+1)
 def clear_screen():
     display.delete(0,END)
+def delete_element():
+    display_status = display.get()
+    if len(display_status):
+        display_new_status = display_status[:-1]
+        clear_screen()
+        display.insert(0,display_new_status)
+    else:
+        clear_screen()
 
+
+
+    
 
 #BUTTONS COLUMN 0:
-Button(screen,text="⌫",font="Consol 14").grid(row=1,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
+Button(screen,text="⌫",font="Consol 14",command=lambda:delete_element()).grid(row=1,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
 Button(screen,text="AC",font="Consol 14",command=lambda:clear_screen()).grid(row=3,rowspan=2,column=0,padx=12,pady=6,sticky=W+E+N+S)
 #BUTTONS COLUMN 1:
 Button(screen,text="7",font="Consol 14",command=lambda:add_element(7)).grid(row=1,column=1,pady=6,sticky=W+E)
